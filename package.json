@@ -15,7 +15,7 @@
     "link": "lerna link",
     "test": "npm run test:unit:coverage && npm run test:component:coverage",
     "test:component:coverage": "aw -c aw.config.js --type component",
-    "test:integration:local": "lerna run test:integration:local",
+    "test:integration:local": "webdriver-manager update --versions.chrome 2.37 --gecko false && aw protractor -c test/integration/aw.config.js --require @babel/register --require @babel/helpers",
     "test:unit:coverage": "aw -c aw.config.js",
     "test:unit:watch": "aw -c aw.config.js -w"
   },
@@ -49,6 +49,7 @@
     "lerna": "^3.4.1",
     "mocha-junit-reporter": "^1.18.0",
     "protractor": "^5.4.1",
+    "puppeteer": "^1.9.0",
     "rollup": "^0.66.4",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.1.8",
@@ -59,5 +60,8 @@
     "docs",
     "packages/*",
     "plugins/*"
-  ]
+  ],
+  "dependencies": {
+    "picasso.js": "^0.14.0"
+  }
 }

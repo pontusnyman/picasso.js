@@ -13,13 +13,13 @@ module.exports = function initConfig(baseConfig) {
     mochaOpts: {
       bail: false
     },
-    specs: [path.resolve(__dirname, 'test/integration/**/*.int.js')],
+    specs: [path.resolve(__dirname, '**/*.int.js')],
     configureHttpServer() {
       return {
         http: {
           root: [path.resolve(__dirname, '../../')],
           rewrite: {
-            '/fixtures/(.*)': 'packages/picasso.js/test/integration/$1',
+            '/fixtures/(.*)': 'test/integration/$1',
             '/plugins/(.*)': 'plugins/$1'
           }
         }
